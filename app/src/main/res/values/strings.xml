@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Loktra Background Tracking</string>
+
+
+    <string name="start_shift">Start Shift</string>
+    <string name="end_shift">End Shift</string>
+    <string name="shift_duration_label">Shift Duration</string>
+    <string name="started_label">Started</string>
+    <string name="not_started_label">Not Started</string>
+    <string name="no_location_permssion_message">Location Permission Needed!</string>
+    <string name="start_time_label">Start Time</string>
+    <string name="end_time_label">End Time</string>
+    <string name="update_frequency_message">Location is update at every 10m of displacement</string>
+
+</resources>
