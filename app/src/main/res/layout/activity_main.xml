@@ -18,8 +18,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
-        android:layout_margin="20dp"
-        android:padding="20dp"
+        android:layout_margin="@dimen/main_activity_top_container_padding"
+        android:padding="@dimen/main_activity_top_container_padding"
         >
 
         <TextView
@@ -29,8 +29,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:text="@string/shift_duration_label"
-            android:textStyle="bold"
-            android:textSize="18sp"
+            style="@style/TopContainerText"
             />
 
         <TextView
@@ -40,8 +39,7 @@
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:textStyle="bold"
-            android:textSize="18sp"
+            style="@style/TopContainerText"
             android:text="@string/not_started_label"
             />
 
@@ -51,14 +49,15 @@
 
     <ImageButton
         android:id="@+id/historyButton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:padding="10dp"
-        android:layout_marginLeft="20dp"
+        android:layout_width="@dimen/image_button_history_size"
+        android:layout_height="@dimen/image_button_history_size"
+        android:padding="@dimen/button_history_padding"
+        android:layout_marginStart="@dimen/button_margin_history"
         android:scaleType="fitXY"
-        android:background="#004a8f"
+        android:background="@color/colorPrimary"
         android:layout_above="@+id/shiftSwitch"
         android:src="@drawable/ic_history"
+        android:layout_marginLeft="@dimen/button_margin_history"
         />
 
     <Switch
@@ -66,12 +65,10 @@
         android:layout_alignParentBottom="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:padding="10dp"
-        android:background="#004a8f"
+        android:layout_margin="@dimen/button_margin_history"
+        android:padding="@dimen/button_history_padding"
         android:text="@string/start_shift"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
+        style="@style/ShiftSwitch"
         />
 
 </RelativeLayout>

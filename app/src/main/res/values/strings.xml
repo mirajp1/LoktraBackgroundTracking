@@ -11,5 +11,7 @@
     <string name="start_time_label">Start Time</string>
     <string name="end_time_label">End Time</string>
     <string name="update_frequency_message">Location is update at every 10m of displacement</string>
+    <string name="map_marker_start_title">Start</string>
+    <string name="map_marker_end_title">End</string>
 
 </resources>

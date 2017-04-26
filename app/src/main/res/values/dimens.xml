@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="list_activity_padding">10dp</dimen>
+    <dimen name="main_activity_top_container_padding">20dp</dimen>
+    <dimen name="image_button_history_size">40dp</dimen>
+    <dimen name="button_margin_history">20dp</dimen>
+    <dimen name="button_history_padding">10dp</dimen>
+    <dimen name="shift_item_padding_margin">10dp</dimen>
+</resources>

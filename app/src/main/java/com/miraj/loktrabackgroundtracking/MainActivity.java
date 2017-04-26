@@ -1,6 +1,5 @@
 package com.miraj.loktrabackgroundtracking;
 
-import android.app.ActivityManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -80,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         sqLiteDBHelper = new SQLiteDBHelper(this);
         sqLiteDBHelper.open();
 
-        serviceRunning=isServiceRunning(LocationTrackService.class);
+        serviceRunning=Utils.isServiceRunning(MainActivity.this,LocationTrackService.class);
         currentShift=sqLiteDBHelper.getCurrentShift();
 
         if(serviceRunning || currentShift!=null){
@@ -110,9 +109,9 @@ public class MainActivity extends AppCompatActivity {
                     shiftSwitch.setText(getString(R.string.start_shift));
                 }
 
-                if(checked && !isServiceRunning(LocationTrackService.class)){
+                if(checked && !Utils.isServiceRunning(MainActivity.this,LocationTrackService.class)){
 
-                    Log.e(LOG_TAG,"starting location serivce");
+                    Log.e(LOG_TAG,"starting location service");
 
                     removeMapPolyLines();
                     removeMapMarkers();
@@ -223,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
 
         Marker marker = map.addMarker(new MarkerOptions()
                 .position(latLng)
-                .title("Start")
+                .title(getString(R.string.map_marker_start_title))
                 .snippet(Utils.convertMillisToDateString(timeStamp))
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
 
@@ -235,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
 
         Marker marker = map.addMarker(new MarkerOptions()
                 .position(latLng)
-                .title("End")
+                .title(getString(R.string.map_marker_end_title))
                 .snippet(Utils.convertMillisToDateString(timeStamp))
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
 
@@ -322,14 +321,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupMap() {
 
-//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//
-//        }
-//        else{
-//            map.setMyLocationEnabled(true);
-//        }
         map.getUiSettings().setZoomControlsEnabled(true);
-//        map.moveCamera(CameraUpdateFactory.newLatLngZoom(PUNE_LOCATION, 12.0f));
 
     }
 
@@ -359,13 +351,5 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private boolean isServiceRunning(Class<?> serviceClass) {
-        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
-            if (serviceClass.getName().equals(service.service.getClassName())) {
-                return true;
-            }
-        }
-        return false;
-    }
+
 }

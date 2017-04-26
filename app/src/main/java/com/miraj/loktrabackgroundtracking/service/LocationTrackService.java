@@ -72,6 +72,9 @@ public class LocationTrackService extends Service implements GoogleApiClient.Con
 
         startServiceAsForeground();
 
+        Log.e(LOG_TAG,"Service started");
+
+
         return START_NOT_STICKY;
     }
 
@@ -86,6 +89,9 @@ public class LocationTrackService extends Service implements GoogleApiClient.Con
 
         if(notificationManager!=null)
             notificationManager.cancel(NOTIFICATION_ID);
+
+        Log.e(LOG_TAG,"onDestroy");
+
     }
 
     private void startGoogleApiClient() {
@@ -136,15 +142,18 @@ public class LocationTrackService extends Service implements GoogleApiClient.Con
     @Override
     public void onConnected(@Nullable Bundle bundle) {
         startLocationUpdates();
+        Log.e(LOG_TAG,"onConnected");
     }
 
     @Override
     public void onConnectionSuspended(int i) {
+        Log.e(LOG_TAG,"onConnectionSuspended");
 
     }
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+        Log.e(LOG_TAG,"onConnectionFailed");
 
     }
 
